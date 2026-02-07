@@ -22,11 +22,12 @@
     "docker:dev:down": "docker compose --env-file .env.dev -f docker-compose.dev.yaml down",
     "docker:dev:watch": "docker compose --env-file .env.dev -f docker-compose.dev.yaml up --watch",
     "typeorm": "typeorm-ts-node-commonjs",
-    "docker:typeorm:migration:run": "docker compose --env-file .env.dev -f docker-compose.dev.yaml exec app pnpm typeorm migration:run -- -d src/config/typeorm.config.ts",
-    "docker:typeorm:migration:generate": "docker compose --env-file .env.dev -f docker-compose.dev.yaml exec app pnpm typeorm migration:generate -- -d src/config/typeorm.config.ts",
-    "docker:typeorm:migration:revert": "docker compose --env-file .env.dev -f docker-compose.dev.yaml exec app pnpm typeorm migration:revert -- -d src/config/typeorm.config.ts",
-    "docker:typeorm:migration:create": "docker compose --env-file .env.dev -f docker-compose.dev.yaml exec app pnpm typeorm migration:create -- -d src/config/typeorm.config.ts",
-    "docker:typeorm:migration:show": "docker compose --env-file .env.dev -f docker-compose.dev.yaml exec app pnpm typeorm migration:show -- -d src/config/typeorm.config.ts"
+    "migration:generate": "typeorm migration:generate -d src/config/typeorm.config.ts",
+    "docker:typeorm:migration:run": "docker compose --env-file .env.dev -f docker-compose.dev.yaml exec app pnpm typeorm migration:run -d src/config/typeorm.config.ts",
+    "docker:typeorm:migration:generate": "docker compose --env-file .env.dev -f docker-compose.dev.yaml exec app pnpm typeorm migration:generate -d src/config/typeorm.config.ts",
+    "docker:typeorm:migration:revert": "docker compose --env-file .env.dev -f docker-compose.dev.yaml exec app pnpm typeorm migration:revert -d src/config/typeorm.config.ts",
+    "docker:typeorm:migration:create": "docker compose --env-file .env.dev -f docker-compose.dev.yaml exec app pnpm typeorm migration:create -d src/config/typeorm.config.ts",
+    "docker:typeorm:migration:show": "docker compose --env-file .env.dev -f docker-compose.dev.yaml exec app pnpm typeorm migration:show -d src/config/typeorm.config.ts"
   },
   "dependencies": {
     "@nestjs/common": "^11.0.1",
