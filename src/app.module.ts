@@ -4,10 +4,10 @@ import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm'
 import { AppController } from './app.controller'
 import { AppService } from './app.service'
 import typeormConfig from './config/typeorm.config'
+import { AuthModule } from './modules/auth/auth.module'
 import { BucketListItemModule } from './modules/bucket-list-item/bucket-list-item.module'
 import { BucketListModule } from './modules/bucket-list/bucket-list.module'
 import { DestinationsModule } from './modules/destination/destination.module'
-import { UserModule } from './modules/user/user.module'
 
 @Module({
   imports: [
@@ -28,7 +28,7 @@ import { UserModule } from './modules/user/user.module'
         return config
       },
     }),
-    UserModule,
+    AuthModule,
     DestinationsModule,
     BucketListModule,
     BucketListItemModule,
