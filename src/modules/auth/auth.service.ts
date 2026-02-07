@@ -28,6 +28,7 @@ export class AuthService {
     }
 
     const tokens = await this.getTokens(user)
+    await this.updateRefreshToken(user.id, tokens.refreshToken)
 
     return tokens
   }
@@ -50,7 +51,7 @@ export class AuthService {
   }
 
   async signOut(userId: string) {
-    return this.userService.update(userId, { refreshToken: null })
+    await this.userService.update(userId, { refreshToken: null })
   }
 
   async refreshAllTokens(userId: string, refreshToken: string) {
