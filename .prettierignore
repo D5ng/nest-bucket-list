@@ -6,4 +6,4 @@
 "*.txt",
 "*.yaml",
 "*.yml"
-".src/migrations"
+"src/migrations"
