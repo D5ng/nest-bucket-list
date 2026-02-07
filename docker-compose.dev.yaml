@@ -49,6 +49,9 @@ services:
       DB_DATABASE: ${DB_DATABASE_NAME}
     command: pnpm run start:dev
     restart: unless-stopped
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
     develop:
       watch:
         - action: sync
