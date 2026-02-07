@@ -1,10 +1,4 @@
-import {
-  Column,
-  Entity,
-  ManyToOne,
-  OneToMany,
-  PrimaryGeneratedColumn,
-} from 'typeorm'
+import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm'
 import { BucketListItem } from '../bucket-list-item/bucket-list-item.entity'
 import { User } from '../user/user.entity'
 
@@ -23,9 +17,6 @@ export class BucketList {
   @ManyToOne(() => User, (user) => user.bucketList)
   user: User
 
-  @OneToMany(
-    () => BucketListItem,
-    (bucketListItem) => bucketListItem.bucketList,
-  )
+  @OneToMany(() => BucketListItem, (bucketListItem) => bucketListItem.bucketList)
   items: BucketListItem[]
 }

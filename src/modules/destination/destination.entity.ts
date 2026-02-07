@@ -26,9 +26,6 @@ export class Destination {
   })
   location: string
 
-  @OneToMany(
-    () => BucketListItem,
-    (bucketListItem) => bucketListItem.destination,
-  )
+  @OneToMany(() => BucketListItem, (bucketListItem) => bucketListItem.destination)
   bucketListItems: BucketListItem[]
 }
