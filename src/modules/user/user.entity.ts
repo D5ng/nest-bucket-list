@@ -18,6 +18,7 @@ export class User {
     type: 'varchar',
     length: 255,
     nullable: false,
+    unique: true,
     default: '',
   })
   username: string
@@ -36,7 +37,7 @@ export class User {
     length: 255,
     nullable: true,
   })
-  refreshToken?: string
+  refreshToken?: string | null
 
   @OneToMany(() => BucketList, (bucketList) => bucketList.user)
   bucketList: BucketList[]
