@@ -20,14 +20,32 @@
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "docker:dev:up": "docker compose --env-file .env.dev -f docker-compose.dev.yaml up -d --build",
     "docker:dev:down": "docker compose --env-file .env.dev -f docker-compose.dev.yaml down",
-    "docker:dev:watch": "docker compose --env-file .env.dev -f docker-compose.dev.yaml up --watch"
+    "docker:dev:watch": "docker compose --env-file .env.dev -f docker-compose.dev.yaml up --watch",
+    "typeorm": "typeorm-ts-node-commonjs",
+    "docker:typeorm:migration:run": "docker compose --env-file .env.dev -f docker-compose.dev.yaml exec app pnpm typeorm migration:run -- -d src/config/typeorm.config.ts",
+    "docker:typeorm:migration:generate": "docker compose --env-file .env.dev -f docker-compose.dev.yaml exec app pnpm typeorm migration:generate -- -d src/config/typeorm.config.ts",
+    "docker:typeorm:migration:revert": "docker compose --env-file .env.dev -f docker-compose.dev.yaml exec app pnpm typeorm migration:revert -- -d src/config/typeorm.config.ts",
+    "docker:typeorm:migration:create": "docker compose --env-file .env.dev -f docker-compose.dev.yaml exec app pnpm typeorm migration:create -- -d src/config/typeorm.config.ts",
+    "docker:typeorm:migration:show": "docker compose --env-file .env.dev -f docker-compose.dev.yaml exec app pnpm typeorm migration:show -- -d src/config/typeorm.config.ts"
   },
   "dependencies": {
     "@nestjs/common": "^11.0.1",
+    "@nestjs/config": "^4.0.3",
     "@nestjs/core": "^11.0.1",
+    "@nestjs/jwt": "^11.0.2",
+    "@nestjs/mapped-types": "^2.1.0",
+    "@nestjs/passport": "^11.0.5",
     "@nestjs/platform-express": "^11.0.1",
+    "@nestjs/typeorm": "^11.0.0",
+    "@types/passport-jwt": "^4.0.1",
+    "argon2": "^0.44.0",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.3",
+    "passport-jwt": "^4.0.1",
+    "pg": "^8.18.0",
     "reflect-metadata": "^0.2.2",
-    "rxjs": "^7.8.1"
+    "rxjs": "^7.8.1",
+    "typeorm": "^0.3.28"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",
@@ -38,6 +56,7 @@
     "@types/express": "^5.0.0",
     "@types/jest": "^30.0.0",
     "@types/node": "^22.10.7",
+    "@types/pg": "^8.16.0",
     "@types/supertest": "^6.0.2",
     "eslint": "^9.18.0",
     "eslint-config-prettier": "^10.0.1",
