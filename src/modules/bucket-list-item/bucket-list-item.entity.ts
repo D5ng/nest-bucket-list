@@ -10,7 +10,7 @@ export class BucketListItem {
   @ManyToOne(() => BucketList, (bucketList) => bucketList.items)
   bucketList: BucketList
 
-  @ManyToOne(() => Destination, (destination) => destination.bucketListItems)
+  @ManyToOne(() => Destination, (destination) => destination.bucketListItems, { eager: true })
   destination: Destination
 
   @Column({ type: 'boolean', default: false })
