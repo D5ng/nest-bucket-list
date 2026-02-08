@@ -9,5 +9,6 @@ import { BucketListService } from './bucket-list.service'
   imports: [TypeOrmModule.forFeature([BucketList, User])],
   providers: [BucketListService],
   controllers: [BucketListController],
+  exports: [BucketListService],
 })
 export class BucketListModule {}
