@@ -25,6 +25,10 @@ FROM node:20-alpine AS runner
 
 WORKDIR /usr/src/app
 
+# 한국 시간대 적용 (로그/날짜 기준)
+RUN apk add --no-cache tzdata
+ENV TZ=Asia/Seoul
+
 RUN corepack enable && corepack prepare pnpm@latest --activate
 
 COPY package.json pnpm-lock.yaml ./
